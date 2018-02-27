@@ -26,7 +26,9 @@ QString FinderThread::getModNameByID(const QVector<quint8> id)
                 case 11:res = "MC3521";break;
                 case 12:res = "MC3522";break;
                 case 13:res = "MC3523";break;
-                case 14:res = "MC3530";break;
+                case 14:res = "MC3524";break;
+                case 15:res = "MC3525";break;
+                case 46:res = "MC3556";break;
             }
         }
     }

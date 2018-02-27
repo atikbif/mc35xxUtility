@@ -61,7 +61,12 @@ SOURCES += main.cpp\
     mc3518scanner.cpp \
     tab16do.cpp \
     mc3511gui.cpp \
-    mc3511scanner.cpp
+    mc3511scanner.cpp \
+    mc3525gui.cpp \
+    mc3525scanner.cpp \
+    mc3556scanner.cpp \
+    mc3556gui.cpp \
+    tabai16.cpp
 
 HEADERS  += mainwindow.h \
     abstractgui.h \
@@ -101,7 +106,12 @@ HEADERS  += mainwindow.h \
     mc3518scanner.h \
     tab16do.h \
     mc3511gui.h \
-    mc3511scanner.h
+    mc3511scanner.h \
+    mc3525gui.h \
+    mc3525scanner.h \
+    mc3556gui.h \
+    mc3556scanner.h \
+    tabai16.h
 
 FORMS    += mainwindow.ui
 

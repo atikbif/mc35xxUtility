@@ -28,6 +28,10 @@
 #include "mc3521scanner.h"
 #include "mc3523gui.h"
 #include "mc3523scanner.h"
+#include "mc3525gui.h"
+#include "mc3525scanner.h"
+#include "mc3556gui.h"
+#include "mc3556scanner.h"
 
 using LinkPtr = QSharedPointer<LinkManager>;
 using GUIPtr = QSharedPointer<AbstractGUI>;
@@ -86,6 +90,16 @@ std::map<QString,std::function<std::pair<LinkPtr,GUIPtr>(QString,int,qint32,int,
     {"MC3523",[](const QString pName, int netAddr, qint32 baudrate, int stopBits, int parity){
         LinkPtr link = QSharedPointer<LinkManager>::create(new MC3523Scanner(pName,netAddr,baudrate,stopBits,parity));
         GUIPtr gui = QSharedPointer<MC3523GUI>(new MC3523GUI());
+        return std::make_pair(link,gui);
+    }},
+    {"MC3525",[](const QString pName, int netAddr, qint32 baudrate, int stopBits, int parity){
+        LinkPtr link = QSharedPointer<LinkManager>::create(new MC3525Scanner(pName,netAddr,baudrate,stopBits,parity));
+        GUIPtr gui = QSharedPointer<MC3525GUI>(new MC3525GUI());
+        return std::make_pair(link,gui);
+    }},
+    {"MC3556",[](const QString pName, int netAddr, qint32 baudrate, int stopBits, int parity){
+        LinkPtr link = QSharedPointer<LinkManager>::create(new MC3556Scanner(pName,netAddr,baudrate,stopBits,parity));
+        GUIPtr gui = QSharedPointer<MC3556GUI>(new MC3556GUI());
         return std::make_pair(link,gui);
     }}
 };
@@ -173,6 +187,7 @@ void MainWindow::found()
     clearInfoWidget();
 
     QString mName = ui->lineEditName->text();
+    //mName = "MC3556";
     if(!mName.isEmpty()) {
         auto it = mod_map.find(mName);
         if(it!=mod_map.end()) {
