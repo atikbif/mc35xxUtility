@@ -1,0 +1,16 @@
+#ifndef ABSRACTLINK_H
+#define ABSRACTLINK_H
+
+#include <QObject>
+
+class AbsractLink : public QObject
+{
+    Q_OBJECT
+public:
+    explicit AbsractLink(QObject *parent = 0);
+
+signals:
+public slots:
+};
+
+#endif // ABSRACTLINK_H
